@@ -20,15 +20,18 @@ public class Main {
         JMenuBar jMenuBar = new JMenuBar();
         jFrame.setJMenuBar(jMenuBar);
         JMenu file = new JMenu("File");
-        JMenu edit = new JMenu("Edit");
         file.setMnemonic('F');
+        JMenu edit = new JMenu("Edit");
         edit.setMnemonic('E');
         jMenuBar.add(file);
         jMenuBar.add(edit);
-        JMenuItem open = file.add(new JMenuItem("Open", 'O'));
-        JMenuItem save = file.add(new JMenuItem("Save", 'S'));
+        JMenuItem open = new JMenuItem("Open", 'O');
+        file.add(open);
+        JMenuItem save = new JMenuItem("Save", 'S');
+        file.add(save);
         JMenu options = new JMenu("Options");
-        JMenuItem settings = options.add(new JMenuItem("Settings"));
+        JMenuItem settings = new JMenuItem("Settings");
+        options.add(settings);
         settings.setEnabled(false);
         file.add(options);
         save.setEnabled(false);
@@ -54,6 +57,16 @@ public class Main {
         jPopupMenu.add(copy);
         jPopupMenu.add(close);
         jPanel.setComponentPopupMenu(jPopupMenu);
+
+        JButton one = new JButton("One");
+        one.setToolTipText("First");
+        JToolBar jToolBar = new JToolBar("Tool Bar");
+        jToolBar.add(one);
+        jToolBar.addSeparator();
+        jToolBar.add(new JButton("Two"));
+        jToolBar.add(new JButton("Three"));
+        jPanel.add(jToolBar);
+
 
         jFrame.add(jPanel);
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.Y_AXIS));
